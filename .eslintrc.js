@@ -1,4 +1,12 @@
 module.exports = {
   root: true,
-  extends: '@react-native-community',
+  extends: [
+    'alloy',
+    'alloy/react',
+    'alloy/typescript',
+    '@react-native-community',
+  ],
+  rules: {
+    // Customize your rules
+  },
 };
