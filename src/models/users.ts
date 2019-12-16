@@ -1,5 +1,6 @@
 import {asType} from 'src/utils';
 import {Model} from 'src/utils/dva';
+import {Draft} from 'immer';
 
 export const defaultState = {
   userName: '',
@@ -30,11 +31,8 @@ export default asType<Model>({
     },
   },
   reducers: {
-    updateUser(state, {payload}) {
-      return {
-        ...state,
-        userName: payload.userName,
-      };
+    updateUser(draft: Draft<UserState>, {payload}) {
+      draft.userName = payload.userName;
     },
   },
 });

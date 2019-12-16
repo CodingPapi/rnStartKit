@@ -1,4 +1,5 @@
 import createLoading from 'dva-loading';
+import createImmer from 'dva-immer';
 import {models, initialState, GlobalState} from 'src/models';
 import {create} from 'dva-core';
 export interface Options {
@@ -19,6 +20,7 @@ export function dvaCreateApp() {
   };
   const app = create(options);
   app.use(createLoading({}));
+  app.use(createImmer());
   // HMR workaround
   if (!global.registered) {
     options.models.forEach((model: Model) => app.model(model));

@@ -1,5 +1,6 @@
 import {asType} from 'src/utils';
 import {Model} from 'src/utils/dva';
+import {Draft} from 'immer';
 
 type LoginType = 'loggedIN' | 'loggedOUT';
 export const defaultState = {
@@ -22,7 +23,7 @@ export default asType<Model>({
         // const {userName} = remoteData.result;
         const userName = 'hello';
         yield put({
-          type: 'updateUser',
+          type: 'updateLoggin',
           payload: {
             userName: userName || '',
           },
@@ -31,11 +32,8 @@ export default asType<Model>({
     },
   },
   reducers: {
-    updateUser(state, {payload}) {
-      return {
-        ...state,
-        userName: payload.userName,
-      };
+    updateLoggin(state: Draft<LoginState>, {payload}) {
+      state.lastLoggedUser = payload.userName;
     },
   },
 });
