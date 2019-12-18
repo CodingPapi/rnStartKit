@@ -25,9 +25,17 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+// added for react-navigation
+// https://reactnavigation.org/docs/en/next/stack-navigator.html
+import {enableScreens} from 'react-native-screens';
+import 'react-native-gesture-handler';
+
+// add for react-native-screens
+enableScreens();
 
 const App = () => {
-  const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
+  const usingHermes =
+    typeof HermesInternal === 'object' && HermesInternal !== null;
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -45,8 +53,8 @@ const App = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-                screen and then come back to see your edits.
+                Edit <Text style={styles.highlight}>App.tsx</Text> to change
+                this screen and then come back to see your edits.
               </Text>
             </View>
             <View style={styles.sectionContainer}>
